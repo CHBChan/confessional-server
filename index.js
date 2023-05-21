@@ -14,7 +14,7 @@ const db = require('./models');
 const confessionRouter = require('./routes/Confessions');
 app.use('/confessions', confessionRouter);
 
-const sequelize = new Sequelize(`${POSTGRES_URL}`);
+const sequelize = new Sequelize(`${process.env.POSTGRES_URL}`);
 
 db.sequelize.sync().then(() => {
 
