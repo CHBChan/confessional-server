@@ -16,6 +16,16 @@ const sequelize = new db.Sequelize(`${process.env.POSTGRES_URL}`, {
     dialectModule: require('pg')
 });
 
+sequelize.authenticate().complete((err) => {
+
+    if(err) {
+        console.log('Connection Error.');
+    }
+    else {
+        console.log('Connection established.')
+    }
+});
+
 db.sequelize.sync().then(() => {
 
     app.listen(process.env.port, () => {
