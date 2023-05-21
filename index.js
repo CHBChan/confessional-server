@@ -11,10 +11,7 @@ const db = require('./models');
 const confessionRouter = require('./routes/Confessions');
 app.use('/confessions', confessionRouter);
 
-const sequelize = new db.Sequelize(`${process.env.POSTGRES_URL}`, {
-
-    dialectModule: require('pg')
-});
+const sequelize = new db.Sequelize(`${process.env.POSTGRES_URL}`);
 
 sequelize.authenticate().complete((err) => {
 
