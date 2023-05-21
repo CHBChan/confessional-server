@@ -11,7 +11,7 @@ const db = require('./models');
 const confessionRouter = require('./routes/Confessions');
 app.use('/confessions', confessionRouter);
 
-const sequelize = new db.Sequelize(`postgres://root:password@localhost:${process.env.port}/ConfessionDB`, {
+const sequelize = new db.Sequelize(`postgres://root:password@${process.env.database}:${process.env.port}/confessionDB`, {
 
     dialectModule: require('pg')
 });
