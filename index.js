@@ -16,16 +16,6 @@ app.use('/confessions', confessionRouter);
 
 const sequelize = new Sequelize(`${process.env.POSTGRES_URL}`);
 
-sequelize.authenticate().complete((err) => {
-
-    if(err) {
-        console.log('Connection Error.');
-    }
-    else {
-        console.log('Connection established.')
-    }
-});
-
 db.sequelize.sync().then(() => {
 
     app.listen(process.env.port, () => {
