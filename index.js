@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const Sequelize = require('sequelize');
 
 require('pg');
 
@@ -13,7 +14,7 @@ const db = require('./models');
 const confessionRouter = require('./routes/Confessions');
 app.use('/confessions', confessionRouter);
 
-const sequelize = new db.Sequelize(`${process.env.POSTGRES_URL}`);
+const sequelize = new Sequelize(`${process.env.POSTGRES_URL}`);
 
 sequelize.authenticate().complete((err) => {
 
