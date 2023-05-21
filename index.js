@@ -14,12 +14,13 @@ const db = require('./models');
 const confessionRouter = require('./routes/Confessions');
 app.use('/confessions', confessionRouter);
 
-const sequelize = new Sequelize(`${process.env.POSTGRES_URL}`);
-
 db.sequelize.sync().then(() => {
 
-    app.listen(process.env.port, () => {
+    app.listen(process.env.PORT || 4004, () => {
 
-        console.log('Server running on port ' + port);
+        console.log('Server running');
     });
+}).catch((err) => {
+
+    console.log(err);
 });
