@@ -12,4 +12,6 @@ This is the backend of the confessional project which uses [PostgreSQL](https://
 
 [Sequelize](https://sequelize.org/)
 
+[Profanity](https://github.com/2Toad/Profanity)
+
 Hosted on [Vercel](https://vercel.com/) **(NOT SPONSORED)**
